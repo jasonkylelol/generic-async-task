@@ -38,12 +38,12 @@ class AsyncTask : public AsyncBase {
 
    public:
     virtual ~AsyncTask() {}
-    // 异步任务类的构造函数，方法和参数在这里初始化
+
     AsyncTask(const F& f, const P& p) {
         m_func = f;
         m_param = p;
     }
-    // 实现复制构造函数和赋值构造函数，以便能够在队列容器中使用
+
     AsyncTask(const AsyncTask& m) {
         m_func = m.m_func;
         m_param = m.m_param;
@@ -53,7 +53,7 @@ class AsyncTask : public AsyncBase {
         m_param = m.m_param;
         return *this;
     }
-    // 执行异步任务的方法
+
     virtual void Exec() override final { m_func(m_param); }
 };  // class AsyncTask
 
